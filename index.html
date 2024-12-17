@@ -114,25 +114,32 @@
     </header>
     <div class="container">
         <img src="profile.jpeg" alt="Suraj Sapkota" class="profile-img">
+        <a href="https://iaa.ewr.govt.nz/PublicRegister/View.aspx?search=1&p=1&adviserNumber=202200611" class="btn" style="background: none; border: none; color: #611234; font-size: 16px; cursor: pointer;"></a>
         <h2>Immigration Advisor</h2>
-        <h2>Managing Director</h2>
+        <i class="fas fa-user-tie"></i> Immigration Advisor Profile</a>
+        <a href="https://everesttravel.co.nz" class="btn" style="background: none; border: none; color: #611234; font-size: 16px; cursor: pointer;"><h2>Managing Director</h2>
         <p>Everest Travel</p>
+        <i class="fas fa-globe"></i> Visit Website</a>
+        
         
         <div class="btn-grid">
-            <a href="tel:+64211871550" class="btn"><i class="fas fa-phone"></i> Call Personal</a>
+            <a href="tel:+64211871550" class="btn"><i class="fas fa-phone"></i> Call Me</a>
             <a href="tel:+6498368848" class="btn"><i class="fas fa-phone"></i> Call Office </a>
-            <a href="sms:+64211871550" class="btn"><i class="fas fa-sms"></i> SMS Personal</a>
+            <a href="sms:+64211871550" class="btn"><i class="fas fa-sms"></i> SMS Me</a>
             <a href="sms:+6498368848" class="btn"><i class="fas fa-sms"></i> SMS Office </a>
-            <a href="https://wa.me/64211871550" class="btn"><i class="fab fa-whatsapp"></i> WhatsApp Personal</a>
+            <a href="https://wa.me/64211871550" class="btn"><i class="fab fa-whatsapp"></i> WhatsApp Me</a>
             <a href="https://wa.me/6498368848" class="btn"><i class="fab fa-whatsapp"></i> WhatsApp Office</a>
             <a href="mailto:info@everesttravel.co.nz" class="btn"><i class="fas fa-envelope"></i> Email</a>
-            <a href="https://everesttravel.co.nz" class="btn"><i class="fas fa-globe"></i> Visit Website</a>
-            <a href="https://iaa.ewr.govt.nz/PublicRegister/View.aspx?search=1&p=1&adviserNumber=202200611" class="btn"><i class="fas fa-user-tie"></i> Immigration Advisor Profile</a>
+           
+            
+            
         </div>
+        
     </div>
     <footer>
-        <a href="#" onclick="showModal()" style="color: #fff; text-decoration: none; margin-right: 20px;"><i class="fas fa-qrcode"></i> Show QR</a>
-        <a href="https://fitandfine.github.io/anup" style="color: #fff; text-decoration: none;"><i class="fas fa-user"></i> About Developer</a>
+        <b><a href="#" onclick="showModal()" style="color: #fff; text-decoration: none; margin-right: 20px;"><i class="fas fa-qrcode"></i>QR</a>
+        <button onclick="saveContact()" style="background: none; border: none; color: #fff; font-size: 16px; cursor: pointer;"><i class="fas fa-save"></i> <b>Save My Contact</b></button>
+        <a href="https://fitandfine.github.io/anup" style="color: #fff; text-decoration: none;"> Built <i class="fas fa-user"></i> by</a>
     </footer>
 
     <!-- QR Modal -->
@@ -157,6 +164,26 @@
             if (event.target === document.getElementById("qrModal")) {
                 closeModal();
             }
+        }
+
+        function saveContact() {
+            var vCardData = "BEGIN:VCARD\n" +
+                "VERSION:3.0\n" +
+                "FN:Suraj Sapkota\n" +
+                "ORG:Everest Travel\n" +
+                "TEL;TYPE=WORK,VOICE:+6498368848\n" +
+                "TEL;TYPE=CELL,VOICE:+64211871550\n" +
+                "EMAIL;TYPE=PREF,INTERNET:info@everesttravel.co.nz\n" +
+                "URL:https://everesttravel.co.nz\n" +
+                "END:VCARD";
+
+            var blob = new Blob([vCardData], {type: "text/vcard"});
+            var link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.download = "SurajSapkota.vcf";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         }
     </script>
 </body>
