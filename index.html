@@ -3,117 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Suraj Sapkota & Everest Travel</title>
+    <title>Suraj Sapkota & Everest Travel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        /* General Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             background-color: #f4f4f9;
             color: #333;
+            text-align: center;
         }
         header {
             background-color: #2c3e50;
-            color: #ecf0f1;
+            color: #ffffff;
             width: 100%;
-            padding: 1rem 0;
-            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         .container {
             width: 90%;
-            max-width: 600px;
-            margin: auto;
-            text-align: center;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 10px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 1rem;
+            border: 3px solid #2c3e50;
+            margin: 10px auto;
+            display: block;
         }
         .btn-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin: 1rem 0;
+            gap: 10px;
+            margin: 20px 0;
         }
         .btn {
             background-color: #3498db;
             color: #fff;
             border: none;
-            padding: 0.75rem;
+            padding: 10px;
             border-radius: 5px;
+            font-size: 16px;
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
+            transition: background-color 0.3s;
         }
         .btn:hover {
             background-color: #2980b9;
         }
-        .btn i {
-            margin-right: 0.5rem;
-        }
-        .save-contact {
-            background-color: #2ecc71;
-        }
-        .save-contact:hover {
-            background-color: #27ae60;
-        }
         footer {
             background-color: #2c3e50;
-            color: #ecf0f1;
+            color: #fff;
             width: 100%;
-            padding: 1rem 0;
+            padding: 15px 0;
             text-align: center;
+            font-size: 16px;
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
             position: fixed;
             bottom: 0;
+            left: 0;
         }
-        footer .footer-btn {
-            background-color: #3498db;
-            color: #fff;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            text-decoration: none;
-            margin: 0.5rem;
-            display: inline-block;
-        }
-        footer .footer-btn:hover {
-            background-color: #2980b9;
-        }
-        /* Modal Styles */
         .modal {
             display: none;
             position: fixed;
-            z-index: 1;
+            z-index: 10;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.6);
         }
         .modal-content {
             background-color: #fff;
             margin: 15% auto;
             padding: 20px;
             border: 1px solid #888;
-            width: 80%;
-            max-width: 400px;
-            text-align: center;
+            width: 300px;
             border-radius: 10px;
         }
         .close {
             color: #aaa;
-            float: right;
-            font-size: 28px;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
             font-weight: bold;
         }
         .close:hover,
@@ -123,79 +103,61 @@
             cursor: pointer;
         }
         .qr-img {
-            width: 100px;
-            height: 100px;
-            margin: 1rem 0;
+            width: 80%;
+            height: auto;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Contact Information</h1>
+        <h1>Suraj Sapkota</h1>
     </header>
     <div class="container">
-        <img src="profile.png" alt="Suraj Sapkota" class="profile-img">
-        <h2>Suraj Sapkota</h2>
-        <p>Managing Director, Everest Travel</p>
+        <img src="profile.jpeg" alt="Suraj Sapkota" class="profile-img">
+        <h2>Immigration Advisor</h2>
+        <h2>Managing Director</h2>
+        <p>Everest Travel</p>
+        
         <div class="btn-grid">
-            <a href="tel:+6498368848" class="btn"><i class="fas fa-phone"></i>Call Office</a>
-            <a href="tel:+64211871550" class="btn"><i class="fas fa-phone"></i>Call Personal</a>
-            <a href="sms:+6498368848" class="btn"><i class="fas fa-sms"></i>SMS Office</a>
-            <a href="sms:+64211871550" class="btn"><i class="fas fa-sms"></i>SMS Personal</a>
-            <a href="https://wa.me/6498368848" class="btn"><i class="fab fa-whatsapp"></i>WhatsApp Office</a>
-            <a href="https://wa.me/64211871550" class="btn"><i class="fab fa-whatsapp"></i>WhatsApp Personal</a>
-            <a href="mailto:info@everesttravel.co.nz" class="btn"><i class="fas fa-envelope"></i>Email</a>
-            <a href="https://everesttravel.co.nz" class="btn"><i class="fas fa-globe"></i>Visit Website</a>
+            <a href="tel:+64211871550" class="btn"><i class="fas fa-phone"></i> Call Personal</a>
+            <a href="tel:+6498368848" class="btn"><i class="fas fa-phone"></i> Call Office </a>
+            <a href="sms:+64211871550" class="btn"><i class="fas fa-sms"></i> SMS Personal</a>
+            <a href="sms:+6498368848" class="btn"><i class="fas fa-sms"></i> SMS Office </a>
+            <a href="https://wa.me/64211871550" class="btn"><i class="fab fa-whatsapp"></i> WhatsApp Personal</a>
+            <a href="https://wa.me/6498368848" class="btn"><i class="fab fa-whatsapp"></i> WhatsApp Office</a>
+            <a href="mailto:info@everesttravel.co.nz" class="btn"><i class="fas fa-envelope"></i> Email</a>
+            <a href="https://everesttravel.co.nz" class="btn"><i class="fas fa-globe"></i> Visit Website</a>
+            <a href="https://iaa.ewr.govt.nz/PublicRegister/View.aspx?search=1&p=1&adviserNumber=202200611" class="btn"><i class="fas fa-user-tie"></i> Immigration Advisor Profile</a>
         </div>
-        <button onclick="sharePage()" class="btn"><i class="fas fa-share-alt"></i>Share</button>
-        <button onclick="showModal()" class="btn"><i class="fas fa-qrcode"></i>Show QR</button>
-        <a href="https://fitandfine.github.io/anup" class="btn"><i class="fas fa-info-circle"></i>About Developer</a>
     </div>
     <footer>
-        <button class="footer-btn" onclick="showModal()">Show QR</button>
-        <button class="footer-btn" onclick="sharePage()">Share Page</button>
-        <a href="https://fitandfine.github.io/anup" class="footer-btn">About Developer</a>
+        <a href="#" onclick="showModal()" style="color: #fff; text-decoration: none; margin-right: 20px;"><i class="fas fa-qrcode"></i> Show QR</a>
+        <a href="https://fitandfine.github.io/anup" style="color: #fff; text-decoration: none;"><i class="fas fa-user"></i> About Developer</a>
     </footer>
 
-    <!-- Modal for QR Code -->
+    <!-- QR Modal -->
     <div id="qrModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Scan QR Code</h2>
             <img src="qr.png" alt="QR Code" class="qr-img">
             <p>Scan to save contact information.</p>
         </div>
     </div>
 
     <script>
-        // Function to show the modal for QR code
         function showModal() {
-            document.getElementById('qrModal').style.display = 'block';
+            document.getElementById("qrModal").style.display = "block";
         }
 
-        // Function to close the modal
         function closeModal() {
-            document.getElementById('qrModal').style.display = 'none';
+            document.getElementById("qrModal").style.display = "none";
         }
 
-        // Function to share the page using the Web Share API
-        function sharePage() {
-            if (navigator.share) {
-                navigator.share({
-                    title: 'Contact Info - Suraj Sapkota',
-                    url: window.location.href
-                }).catch(console.error);
-            } else {
-                alert('Web Share API is not supported in this browser.');
-            }
-        }
-
-        // Close modal when clicking outside of it
         window.onclick = function(event) {
-            if (event.target == document.getElementById('qrModal')) {
+            if (event.target === document.getElementById("qrModal")) {
                 closeModal();
             }
-        };
+        }
     </script>
 </body>
 </html>
