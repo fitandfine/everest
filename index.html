@@ -26,7 +26,7 @@
         .container {
             width: 90%;
             max-width: 600px;
-            margin: 1rem auto;
+            margin: auto;
             text-align: center;
         }
         .profile-img {
@@ -66,19 +66,27 @@
         .save-contact:hover {
             background-color: #27ae60;
         }
-        .search-container {
-            margin: 1rem 0;
-        }
-        .search-input {
-            width: 100%;
-            padding: 0.5rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
         footer {
-            margin-top: 2rem;
-            color: #777;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            width: 100%;
+            padding: 1rem 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+        }
+        footer .footer-btn {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 0.5rem;
+            display: inline-block;
+        }
+        footer .footer-btn:hover {
+            background-color: #2980b9;
         }
         /* Modal Styles */
         .modal {
@@ -139,19 +147,17 @@
             <a href="mailto:info@everesttravel.co.nz" class="btn"><i class="fas fa-envelope"></i>Email</a>
             <a href="https://everesttravel.co.nz" class="btn"><i class="fas fa-globe"></i>Visit Website</a>
         </div>
-        <div class="btn-grid">
-            <button class="btn save-contact" onclick="showModal('office')"><i class="fas fa-address-book"></i>Save Office Contact</button>
-            <button class="btn save-contact" onclick="showModal('personal')"><i class="fas fa-address-book"></i>Save Personal Contact</button>
-        </div>
-        <div class="search-container">
-            <input type="text" id="searchInput" class="search-input" placeholder="Search Everest Travel...">
-        </div>
+        <button onclick="sharePage()" class="btn"><i class="fas fa-share-alt"></i>Share</button>
+        <button onclick="showModal()" class="btn"><i class="fas fa-qrcode"></i>Show QR</button>
+        <a href="https://fitandfine.github.io/anup" class="btn"><i class="fas fa-info-circle"></i>About Developer</a>
     </div>
     <footer>
-        <p>&copy; 2024 Everest Travel. All rights reserved.</p>
+        <button class="footer-btn" onclick="showModal()">Show QR</button>
+        <button class="footer-btn" onclick="sharePage()">Share Page</button>
+        <a href="https://fitandfine.github.io/anup" class="footer-btn">About Developer</a>
     </footer>
 
-    <!-- Modal -->
+    <!-- Modal for QR Code -->
     <div id="qrModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
@@ -162,30 +168,32 @@
     </div>
 
     <script>
-        // Load FontAwesome Icons
-        (function() {
-            var link = document.createElement('link');
-            link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css';
-            link.rel = 'stylesheet';
-            document.head.appendChild(link);
-        })();
-
-        // Modal Logic
-        var modal = document.getElementById("qrModal");
-
-        function showModal(contactType) {
-            document.querySelector(".modal-content p").textContent = 
-                `Scan the QR code to save ${contactType === 'office' ? 'Office' : 'Personal'} contact.`;
-            modal.style.display = "block";
+        // Function to show the modal for QR code
+        function showModal() {
+            document.getElementById('qrModal').style.display = 'block';
         }
 
+        // Function to close the modal
         function closeModal() {
-            modal.style.display = "none";
+            document.getElementById('qrModal').style.display = 'none';
         }
 
+        // Function to share the page using the Web Share API
+        function sharePage() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Contact Info - Suraj Sapkota',
+                    url: window.location.href
+                }).catch(console.error);
+            } else {
+                alert('Web Share API is not supported in this browser.');
+            }
+        }
+
+        // Close modal when clicking outside of it
         window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
+            if (event.target == document.getElementById('qrModal')) {
+                closeModal();
             }
         };
     </script>
